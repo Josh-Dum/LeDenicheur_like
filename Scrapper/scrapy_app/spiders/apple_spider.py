@@ -1,2 +1,0 @@
-# spider pour scrapper apple
-
