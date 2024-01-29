@@ -1,3 +1,4 @@
 scrapy
 json
 scrapy-splash
+itemadapter
