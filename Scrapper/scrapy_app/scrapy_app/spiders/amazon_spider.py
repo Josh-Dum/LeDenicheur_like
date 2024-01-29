@@ -1,19 +1,22 @@
 import scrapy
-from scrapy_app.items import IphonePriceItem 
+from scrapy_app.items import IphoneItem 
 
 class AmazonSpider(scrapy.Spider):
     name = 'amazon_spider'
     allowed_domains = ['amazon.fr']
-    # start_urls = ['https://www.amazon.fr/stores/Apple/Touslesmod%C3%A8les_iPhone/page/1C669056-0312-41F0-966C-FBA3BB8CD016']
     start_urls = ['https://www.amazon.fr/s?k=iphone15']
 
     def parse(self, response):
-        for price_span in response.css('.a-offscreen'):
-            # Extraction directe du texte du prix
-            price = price_span.css('::text').get().strip()
+        # Itère sur chaque produit
+        for product in response.css('div.s-result-item'):
+            # Extraction du nom et du prix
+            name = product.css('span.a-size-base-plus.a-color-base.a-text-normal::text').get()
+            price = product.css('.a-offscreen::text').get()
 
-            item = IphonePriceItem()
-            item['price'] = price
+            item = IphoneItem()
+            item['name'] = name.strip() if name else 'N/A'  # Gère les cas où le nom n'est pas trouvé
+            item['price'] = price.strip() if price else 'N/A'  # Gère les cas où le prix n'est pas trouvé
             yield item
+
 
 

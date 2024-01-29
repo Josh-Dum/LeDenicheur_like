@@ -5,5 +5,6 @@
 
 import scrapy
 
-class IphonePriceItem(scrapy.Item):
+class IphoneItem(scrapy.Item):
     price = scrapy.Field()
+    name = scrapy.Field()
