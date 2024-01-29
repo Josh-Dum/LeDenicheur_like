@@ -1,5 +1,5 @@
 import scrapy
-from scrapy_app.items import IphonePriceItem  # Remplacez par le nom de votre projet
+from scrapy_app.items import IphonePriceItem 
 
 class AmazonSpider(scrapy.Spider):
     name = 'amazon_spider'
@@ -8,11 +8,11 @@ class AmazonSpider(scrapy.Spider):
 
     def parse(self, response):
         for price_span in response.css('.Price__whole__mQGs5'):
-            price_text = price_span.get()
-            # Extraction du prix et nettoyage du texte
-            price = price_text.replace('<span class="Price__whole__mQGs5">', '').replace('</span>', '').strip()
+            # Extraction directe du texte du prix
+            price = price_span.css('::text').get().strip()
 
             item = IphonePriceItem()
             item['price'] = price
             yield item
+
 
