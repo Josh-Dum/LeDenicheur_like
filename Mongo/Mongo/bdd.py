@@ -1,6 +1,7 @@
 from pymongo import MongoClient
 from datetime import datetime
 import urllib.parse
+
 # Connexion à MongoDB
 client = MongoClient('mongodb://localhost:27017/')
 
