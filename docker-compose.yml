@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./Mongo/data_gen:/data/db
+
+  mongo-init:
+    build: ./Mongo
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/
+
+
+  scrapper:
+    build: ./Scrapper
+    depends_on:
+      - mongo-init
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/
+      - MONGO_DATABASE=iphone_db
+    volumes:
+      - ./Scrapper:/usr/src/app
+
+volumes:
+  mongo-data:
