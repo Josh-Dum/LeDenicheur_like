@@ -11,4 +11,4 @@ COPY . /app
 RUN pip install -r requirements_mongo.txt
 
 # Commande pour exécuter bdd.py
-CMD ["python", "./bdd.py"]
+CMD ["python", "Mongo_app/bdd.py"]
