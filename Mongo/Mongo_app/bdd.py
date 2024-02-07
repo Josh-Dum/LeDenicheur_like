@@ -1,6 +1,7 @@
 from pymongo import MongoClient
 from datetime import datetime
 import urllib.parse
+import json
 
 # Connexion à MongoDB
 client = MongoClient('mongodb://mongo:27017/')
@@ -170,3 +171,23 @@ else:
     print("Les données existent déjà.")
 
 
+# Charger les données du fichier JSON
+with open('/app/data_json/donnees_produits.json', 'r', encoding='utf-8') as file:
+    produits_dict = json.load(file)
+
+# Mettre à jour MongoDB avec les données chargées
+for identifiant_unique, produit in produits_dict.items():
+    update_result = models.update_one(
+        {"gamme": produit['gamme'], "modèles.nom": produit['nom']},
+        {
+            "$set": {
+                "modèles.$[mod].variantes.$[var].couleurs.$[col].prix": produit['prix'],
+                "modèles.$[mod].variantes.$[var].couleurs.$[col].date": produit['date']
+            }
+        },
+        array_filters=[
+            {"mod.nom": produit['nom']},
+            {"var.stockage": produit['stockage']},
+            {"col.couleur": produit['couleur']}
+        ]
+    )

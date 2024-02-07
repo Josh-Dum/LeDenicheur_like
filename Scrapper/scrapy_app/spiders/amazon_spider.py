@@ -36,7 +36,7 @@ class AmazonSpider(scrapy.Spider):
 
     def charger_donnees_existantes(self):
         try:
-            with open('/app/data/donnees_produits.json', 'r', encoding='utf-8') as f:
+            with open('/app/data_json/donnees_produits.json', 'r', encoding='utf-8') as f:
                 self.produits = json.load(f)
         except FileNotFoundError:
             self.produits = {}
@@ -167,7 +167,7 @@ class AmazonSpider(scrapy.Spider):
 
     def write_to_json(self):
         # Écrire les données mises à jour dans le fichier JSON
-        with open('/app/data/donnees_produits.json', 'w', encoding='utf-8') as f:
+        with open('/app/data_json/donnees_produits.json', 'w', encoding='utf-8') as f:
             json.dump(self.produits, f, ensure_ascii=False, indent=4)
 
 
