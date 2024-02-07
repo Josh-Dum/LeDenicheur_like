@@ -47,10 +47,23 @@ ROBOTSTXT_OBEY = True
 #SPIDER_MIDDLEWARES = {
 #    "scrapy_app.middlewares.ScrapyAppSpiderMiddleware": 543,
 #}
-DOWNLOADER_MIDDLEWARES = {
-    # ... autres middlewares ...
-    'scrapy_user_agents.middlewares.RandomUserAgentMiddleware': 400,
-}
+
+import random
+
+USER_AGENTS = [
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36',
+    'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:54.0) Gecko/20100101 Firefox/70.0',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.7 (KHTML, like Gecko) Version/9.1.2 Safari/601.7.7',
+    'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36'
+]
+
+# # Sélection aléatoire d'un user-agent
+# selected_user_agent = random.choice(USER_AGENTS)
+
+# # Assignation du user-agent sélectionné à la configuration
+# USER_AGENT = selected_user_agent
+
 
 DOWNLOAD_DELAY = 5  # Un délai de 5 secondes entre chaque requête
 CONCURRENT_REQUESTS_PER_DOMAIN = 8
@@ -61,7 +74,10 @@ AUTOTHROTTLE_START_DELAY = 5
 AUTOTHROTTLE_MAX_DELAY = 60
 
 
-
+DOWNLOADER_MIDDLEWARES = {
+    
+    'scrapy_user_agents.middlewares.RandomUserAgentMiddleware': 400,
+}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html

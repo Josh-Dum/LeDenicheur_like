@@ -9,8 +9,8 @@ client = MongoClient('mongodb://mongo:27017/')
 db = client['iphone_db']
 models = db['models']
 
-# # Vider la collection
-# models.delete_many({})
+# Vider la collection
+models.delete_many({})
 
 iphone_data = {
     "gamme": "iPhone 15",
@@ -89,6 +89,15 @@ iphone_data = {
             "nom": "iPhone 15 Pro",
             "variantes": [
                 {
+                    "stockage": "128 Go",
+                    "couleurs": [
+                        {"couleur": "Titane Naturel", "prix": "", "date": ""},
+                        {"couleur": "Titane Bleu", "prix": "", "date": ""},
+                        {"couleur": "Titane Noir", "prix": "", "date": ""},
+                        {"couleur": "Titane Blanc", "prix": "", "date": ""}
+                    ]
+                },
+                {
                     "stockage": "256 Go",
                     "couleurs": [
                         {"couleur": "Titane Naturel", "prix": "", "date": ""},
@@ -161,27 +170,3 @@ else:
     print("Les données existent déjà.")
 
 
-
-
-# # Récupération de la date actuelle
-# current_date = datetime.now().strftime("%Y-%m-%d")
-# urls = []
-# # Génération des URLs pour le scraping
-# for model in models.find({}):
-#     gamme = model["gamme"]
-#     for modele in model["modèles"]:
-#         nom_modele = modele["nom"]
-#         for variante in modele["variantes"]:
-#             stockage = variante["stockage"]
-#             for couleur in variante["couleurs"]:
-#                 couleur_nom = couleur["couleur"]
-#                 # Construction de l'URL pour Amazon
-#                 query = f"{nom_modele} {couleur_nom} {stockage}".replace(" ", "+")
-#                 url = f"https://www.amazon.fr/s?k={urllib.parse.quote(query)}"
-#                 urls.append(url)
-#                 # Ajout de la date actuelle
-#                 couleur["date"] = current_date
-
-# print(urls)
-# print(len(urls))
-# print(current_date)

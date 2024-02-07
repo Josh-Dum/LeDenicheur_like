@@ -7,13 +7,16 @@ from datetime import datetime
 import pymongo
 import os
 import re
-
+import json
 
 class AmazonSpider(scrapy.Spider):
     name = 'amazon_spider'
     allowed_domains = ['amazon.fr']
     # start_urls = ['https://www.amazon.fr/s?k=iphone15+pro+1To+titane+naturel']
 
+
+
+    produits ={}
 
     def __init__(self, *args, **kwargs):
         super(AmazonSpider, self).__init__(*args, **kwargs)
@@ -27,7 +30,18 @@ class AmazonSpider(scrapy.Spider):
         # Ajouter un log pour confirmer la connexion
         self.logger.info("Connexion à MongoDB réussie")
         self.logger.info(f"Base de données: {self.db.name}, Collection: {self.models.name}")
-    
+        # Charger les données existantes
+        self.charger_donnees_existantes()
+
+
+    def charger_donnees_existantes(self):
+        try:
+            with open('/app/data/donnees_produits.json', 'r', encoding='utf-8') as f:
+                self.produits = json.load(f)
+        except FileNotFoundError:
+            self.produits = {}
+
+
 
     def start_requests(self):
         
@@ -64,6 +78,15 @@ class AmazonSpider(scrapy.Spider):
         url_stockage = url_info.get('stockage')
         url_couleur = url_info.get('couleur')
 
+        # Supposons que url_info['gamme'] vous donne "iPhone 15 Pro Max" ou similaire
+        full_gamme_name = url_info.get('gamme')
+
+        # Utiliser l'expression régulière pour obtenir seulement "iPhone 15"
+        match = re.match(r"(iPhone \d{1,2})", full_gamme_name)
+        if match:
+            url_gamme = match.group(1)
+        else:
+            url_gamme = full_gamme_name
 
         for product in response.css('div[data-asin]'):
             full_name = product.css('span.a-size-base-plus.a-color-base.a-text-normal::text').get()
@@ -80,7 +103,7 @@ class AmazonSpider(scrapy.Spider):
                 stockage = stockage_match.group(1) if stockage_match else 'Inconnu'
                 couleur = couleur_match.group(1) if couleur_match else 'Inconnu'
                 price = price.replace('\u202f', '').replace('\xa0€', '€').strip()
-                datetime_now = datetime.now().strftime("%Y-%m-%d")
+                datetime_now = datetime.now().strftime("%Y-%m-%d %H:%M")
 
                 # Crée une instance de IphoneItem et attribue les données
                 item = IphoneItem()
@@ -96,31 +119,60 @@ class AmazonSpider(scrapy.Spider):
                     # Comparer avec les informations de l'URL
                     if name == url_model and stockage == url_stockage and couleur == url_couleur:
                         # Mettre à jour la base de données
-                        self.logger.info(f"Mise à jour de la base de données pour : {url_model}, {url_stockage}, {url_couleur}")
+                        # self.logger.info(f"Mise à jour de la base de données pour : {url_model}, {url_stockage}, {url_couleur}, {url_gamme}")
 
-                        update_result = self.models.update_one(
-                            {"nom": url_model, "stockage": url_stockage, "couleur": url_couleur},
-                            {"$set": {"prix": item['price'], "date": item['datetime']}}
-                        )
+                        # update_result = self.models.update_one(
+                        #     {
+                        #         "gamme": url_gamme,
+                        #         "modèles.nom": url_model
+                        #     },
+                        #     {
+                        #         "$set": {
+                        #             "modèles.$[mod].variantes.$[var].couleurs.$[col].prix": item['price'],
+                        #             "modèles.$[mod].variantes.$[var].couleurs.$[col].date": item['datetime']
+                        #         }
+                        #     },
+                        #     array_filters=[
+                        #         {"mod.nom": url_model},
+                        #         {"var.stockage": url_stockage},
+                        #         {"col.couleur": url_couleur}
+                        #     ]
+                        # )
 
+                        identifiant_unique = f"{url_model}-{url_stockage}-{url_couleur}-{url_gamme}"
+                        self.produits[identifiant_unique] = {
+                            "nom": url_model,
+                            "stockage": url_stockage,
+                            "couleur": url_couleur,
+                            "prix": item['price'],
+                            "gamme": url_gamme,
+                            "date": item['datetime']
+                        }
+
+
+                        # Écrire les données dans un fichier JSON avant de fermer
+                        self.write_to_json()
                         # Vérifier si la mise à jour a été effectuée
-                        if update_result.matched_count > 0:
-                            self.logger.info("Mise à jour réussie.")
-                        else:
-                            self.logger.warning("Aucune correspondance trouvée pour la mise à jour.")
-
-                        print(url_couleur)
-                        print(url_model)
+                        # if update_result.matched_count > 0:
+                        #     self.logger.info("Mise à jour réussie.")
+                        # else:
+                        #     self.logger.warning("Aucune correspondance trouvée pour la mise à jour.")
 
                         yield item
-                        break  # Arrêtez après avoir trouvé et mis à jour l'item correspondant
+                        # break   Arrêtez après avoir trouvé et mis à jour l'item correspondant
                 # else:
                 #     self.logger.info(f"Information manquante pour le produit : {product.attrib['data-asin']}")
             # else:
             #     self.logger.info(f"Produit manquant : {product.attrib['data-asin']}")
 
+    def write_to_json(self):
+        # Écrire les données mises à jour dans le fichier JSON
+        with open('/app/data/donnees_produits.json', 'w', encoding='utf-8') as f:
+            json.dump(self.produits, f, ensure_ascii=False, indent=4)
+
 
     def close(self, spider, reason):
+        
         # Fermer la connexion à MongoDB lorsque le spider est terminé
         self.client.close()
 

@@ -23,7 +23,6 @@ services:
       - MONGO_URI=mongodb://mongo:27017/
       - MONGO_DATABASE=iphone_db
     volumes:
-      - ./Scrapper:/usr/src/app
-
+      - ./Scrapper/data:/app/data
 volumes:
   mongo-data:
