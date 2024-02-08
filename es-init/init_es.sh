@@ -9,4 +9,4 @@ done
 echo "Elasticsearch est prêt."
 
 # Exécuter le script de transfert de données
-python /app/transfer_script.py
+python -u /app/transfer_script.py
