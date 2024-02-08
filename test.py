@@ -54,6 +54,7 @@ def search_in_elasticsearch(search_name, search_color, search_storage, price_min
         "size": 10
     }
 
+    print("Requête envoyée à Elasticsearch:", body)  # Instruction d'impression pour déboguer
     response = es.search(index="iphone_index", body=body)
     return [hit["_source"] for hit in response['hits']['hits']]
 
