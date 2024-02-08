@@ -28,13 +28,22 @@ def generate_es_documents(docs):
             for variante in modele['variantes']:
                 stockage = variante['stockage']
                 for couleur in variante['couleurs']:
+
+                    # Supprimer les symboles de monnaie et convertir en nombre
+                    prix_texte = couleur['prix'].replace('€', '').replace(',', '.')
+                    try:
+                        prix = float(prix_texte.strip())
+                    except ValueError:
+                        prix = 0.0  # ou une autre valeur par défaut en cas d'erreur
+
+                    print(prix)
                     # Créer un document pour chaque variante de couleur
                     doc_es = {
                         'gamme': gamme,
                         'nom': nom_modele,
                         'stockage': stockage,
                         'couleur': couleur['couleur'],
-                        'prix': couleur['prix'],
+                        'prix': prix,
                         'date': couleur['date']
                     }
                     yield {
