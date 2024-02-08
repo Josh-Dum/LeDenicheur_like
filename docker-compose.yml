@@ -14,7 +14,6 @@ services:
     environment:
       - MONGO_URI=mongodb://mongo:27017/
 
-
   scrapper:
     build: ./Scrapper
     depends_on:
@@ -24,5 +23,26 @@ services:
       - MONGO_DATABASE=iphone_db
     volumes:
       - ./Mongo/data_json:/app/data_json
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.4.3
+    environment:
+      - discovery.type=single-node
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
+
+  es-init:
+    image: python:3.11.7
+    volumes:
+      - ./init_es.sh:/init_es.sh
+      - ./es-init/transfer_script.py:/transfer_script.py
+    depends_on:
+      - elasticsearch
+    command: /bin/bash -c "/init_es.sh"
+
 volumes:
   mongo-data:
+  elasticsearch-data:
