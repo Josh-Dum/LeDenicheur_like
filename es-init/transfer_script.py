@@ -33,7 +33,7 @@ def generate_es_documents(docs):
                     except ValueError:
                         prix = None  # ou une autre valeur par défaut en cas d'erreur
 
-                    
+                    unique_id = f"{nom_modele}_{stockage}_{couleur['couleur']}".replace(' ', '_').lower()  # Générer un ID unique
                     # Créer un document pour chaque variante de couleur
                     doc_es = {
                         'gamme': gamme,
@@ -46,6 +46,7 @@ def generate_es_documents(docs):
                     }
                     yield {
                         "_index": "iphone_index",
+                        "_id": unique_id,  # Utiliser l'ID unique généré
                         "_source": doc_es
                     }
 

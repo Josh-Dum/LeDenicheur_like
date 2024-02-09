@@ -144,7 +144,8 @@ class AmazonSpider(scrapy.Spider):
                         self.write_to_json()
                         
                         yield item
-
+                        break
+                        
     def write_to_json(self):
         # Écrire les données mises à jour dans le fichier JSON
         with open('/app/data_json/donnees_produits.json', 'w', encoding='utf-8') as f:
