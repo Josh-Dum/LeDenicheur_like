@@ -44,6 +44,10 @@ Si vous constatez que le service de scrapping est souvent en état `exited`, cel
 
 Veuillez noter que toutes les heures enregistrées dans nos logs et les données scrapées sont en heure britannique (GMT/UTC+0). Ceci signifie qu'il peut y avoir un décalage d'une heure par rapport à l'heure de Paris (CET/UTC+1) pendant une partie de l'année. Assurez-vous de prendre en compte ce décalage lors de l'interprétation des données.
 
+### Backup dans le cas où le site d'amazon changerai
+
+Ce projet contient un fichier json avec des données déjà scrapée en avance pour avoir le maximum d'informations.
+
 ## Recommandations
 
 Pour éviter ces problèmes, nous recommandons d'adopter les pratiques suivantes :
