@@ -1,6 +1,6 @@
 # LEDENICHEUR_LIKE
 
-LEDENICHEUR_LIKE est un projet conçu pour faciliter la recherche des iPhones les moins chers sur Amazon. Le projet intègre Flask, MongoDB, Elasticsearch, et Scrapy pour collecter, stocker, et rechercher efficacement les données sur les produits.
+LEDENICHEUR_LIKE est un projet conçu pour faciliter la recherche des iPhones les moins chers en temps réel (actualisation toutes les minutes) sur Amazon. Le projet intègre Flask, MongoDB, Elasticsearch, et Scrapy pour collecter, stocker, et rechercher efficacement les données sur les produits.
 
 ## Prérequis
 
