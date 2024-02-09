@@ -34,16 +34,33 @@ Pour effectuer une recherche, assurez-vous d'attendre quelques secondes après l
 
 ## Architecture et Choix Techniques
 
-Le projet est divisé en plusieurs composants clés :
+Le projet "LEDENICHEUR_LIKE" est conçu autour d'une architecture microservices, optimisée pour la scalabilité, la modularité et la facilité de maintenance. Chaque composant du système a été choisi et configuré pour répondre au mieux aux besoins spécifiques du projet, depuis la collecte des données jusqu'à la présentation des informations aux utilisateurs.
 
-- **Api/** : Un service Flask fournissant une interface utilisateur pour effectuer des recherches sur les produits. Utilise Bootstrap pour une meilleure ergonomie.
-- **es-init/** : Un service pour initialiser Elasticsearch avec des données provenant de MongoDB et les mettre à jour régulièrement.
-- **Mongo/** : Contient les données des produits et un script d'initialisation pour peupler MongoDB.
-- **Scrapper/** : Un service Scrapy pour extraire les informations des produits des gammes iPhone 15 et 14 sur Amazon.
+### Api/
 
-### Docker Compose
+- **Technologie** : Le service API utilise Flask, un micro-framework Python qui offre la flexibilité nécessaire pour développer des applications web rapidement et avec un minimum de code. Flask a été choisi pour sa simplicité et sa capacité à s'intégrer facilement avec d'autres services comme Elasticsearch.
+- **Rôle** : Ce service agit comme le point d'entrée pour les utilisateurs, fournissant une interface web pour effectuer des recherches sur les produits. L'utilisation de Bootstrap améliore l'expérience utilisateur en proposant une interface propre et réactive.
+- **Communication avec Elasticsearch** : L'API communique directement avec Elasticsearch pour récupérer les informations sur les produits en fonction des requêtes des utilisateurs. Ce choix permet d'exploiter la puissance de recherche d'Elasticsearch, offrant des résultats rapides et pertinents.
 
-`docker-compose.yml` orchestre le déploiement de tous les services, en établissant les dépendances nécessaires entre eux pour un fonctionnement harmonieux.
+### es-init/
+
+- **Scripts d'Initialisation** : Les scripts `init_es.sh` et `transfer_script.py` travaillent de concert pour préparer et maintenir à jour l'index Elasticsearch. Le script Bash attend qu'Elasticsearch soit prêt avant de lancer le script Python, qui transfère ensuite les données de MongoDB vers Elasticsearch.
+- **Choix d'Elasticsearch** : Elasticsearch est utilisé pour sa capacité à effectuer des recherches complexes et à grande échelle. Son système d'indexation permet des requêtes rapides, ce qui est essentiel pour fournir une expérience utilisateur fluide lors de la recherche de produits.
+
+### Mongo/
+
+- **Stockage des Données** : MongoDB, une base de données NoSQL, est utilisée pour stocker les données des produits de manière flexible. Les documents JSON permettent une structure de données complexe, idéale pour les informations détaillées des produits.
+- **Génération et Mise à Jour des Données** : Le dossier `data_json` et le script `bdd.py` sont essentiels pour initialiser la base de données avec les données des produits et les maintenir à jour. MongoDB a été choisi pour sa facilité d'intégration avec des applications Python et sa capacité à gérer de grands volumes de données.
+
+### Scrapper/
+
+- **Scrapy pour le Web Scraping** : Scrapy, un framework de scraping web, est utilisé pour extraire les données des produits depuis les pages d'Amazon. Scrapy a été sélectionné pour sa robustesse, sa facilité d'utilisation et sa capacité à traiter des données web à grande échelle.
+- **Traitement des Données** : Après le scraping, les données sont traitées et formatées en JSON pour être compatibles avec MongoDB. Ce prétraitement est crucial pour assurer l'intégrité et la structure des données stockées.
+
+### docker-compose.yml
+
+- **Orchestration des Services** : Docker Compose est utilisé pour définir et exécuter l'ensemble de l'architecture en conteneurs Docker. Cette approche garantit la cohérence des environnements de développement, de test et de production, simplifie le déploiement et la gestion des services.
+- **Dépendances et Orchestration** : Le fichier `docker-compose.yml` configure les dépendances entre services, assurant que chaque service est lancé dans l'ordre approprié et peut communiquer avec les autres. Par exemple, le service `es-init` ne démarre qu'après `elasticsearch`, garantissant que la base de données est prête à recevoir des données.
 
 ## Contribution
 
