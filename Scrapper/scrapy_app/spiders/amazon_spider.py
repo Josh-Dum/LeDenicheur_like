@@ -81,7 +81,7 @@ class AmazonSpider(scrapy.Spider):
         # Supposons que url_info['gamme'] vous donne "iPhone 15 Pro Max" ou similaire
         full_gamme_name = url_info.get('gamme')
 
-        # Utiliser l'expression régulière pour obtenir seulement "iPhone 15"
+        # Utiliser l'expression régulière pour obtenir seulement "iPhone 15, 14 ou 13"
         match = re.match(r"(iPhone \d{1,2})", full_gamme_name)
         if match:
             url_gamme = match.group(1)
@@ -97,8 +97,8 @@ class AmazonSpider(scrapy.Spider):
                 # Exemple de nom : "Apple iPhone 15 Plus (128 Go) - Noir"
                 gamme = "iPhone"
                 name_match = re.search(r'iPhone \d{1,2}( Pro Max| Pro| Plus)?', full_name)
-                stockage_match = re.search(r'(\d{1,3} (Go|to))', full_name)
-                couleur_match = re.search(r' - (Titane \w+|\w+)$', full_name)
+                stockage_match = re.search(r'(\d{1,3}\s?(Go|to|TB|GB))', full_name)
+                couleur_match = re.search(r' - (Bleu Alpin|Graphite|Red|Lumière stellaire|Noir sidéral|Violet intense|Minuit|Mauve|Titane \w+|\w+)$', full_name)
                 name = name_match.group(0) if name_match else 'Inconnu'
                 stockage = stockage_match.group(1) if stockage_match else 'Inconnu'
                 couleur = couleur_match.group(1) if couleur_match else 'Inconnu'
@@ -118,26 +118,6 @@ class AmazonSpider(scrapy.Spider):
                 if all(value != 'Inconnu' for value in item.values()):
                     # Comparer avec les informations de l'URL
                     if name == url_model and stockage == url_stockage and couleur == url_couleur:
-                        # Mettre à jour la base de données
-                        # self.logger.info(f"Mise à jour de la base de données pour : {url_model}, {url_stockage}, {url_couleur}, {url_gamme}")
-
-                        # update_result = self.models.update_one(
-                        #     {
-                        #         "gamme": url_gamme,
-                        #         "modèles.nom": url_model
-                        #     },
-                        #     {
-                        #         "$set": {
-                        #             "modèles.$[mod].variantes.$[var].couleurs.$[col].prix": item['price'],
-                        #             "modèles.$[mod].variantes.$[var].couleurs.$[col].date": item['datetime']
-                        #         }
-                        #     },
-                        #     array_filters=[
-                        #         {"mod.nom": url_model},
-                        #         {"var.stockage": url_stockage},
-                        #         {"col.couleur": url_couleur}
-                        #     ]
-                        # )
 
                         identifiant_unique = f"{url_model}-{url_stockage}-{url_couleur}-{url_gamme}"
                         self.produits[identifiant_unique] = {
@@ -152,18 +132,8 @@ class AmazonSpider(scrapy.Spider):
 
                         # Écrire les données dans un fichier JSON avant de fermer
                         self.write_to_json()
-                        # Vérifier si la mise à jour a été effectuée
-                        # if update_result.matched_count > 0:
-                        #     self.logger.info("Mise à jour réussie.")
-                        # else:
-                        #     self.logger.warning("Aucune correspondance trouvée pour la mise à jour.")
-
+                        
                         yield item
-                        # break   Arrêtez après avoir trouvé et mis à jour l'item correspondant
-                # else:
-                #     self.logger.info(f"Information manquante pour le produit : {product.attrib['data-asin']}")
-            # else:
-            #     self.logger.info(f"Produit manquant : {product.attrib['data-asin']}")
 
     def write_to_json(self):
         # Écrire les données mises à jour dans le fichier JSON

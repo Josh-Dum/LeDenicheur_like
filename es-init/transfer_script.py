@@ -27,9 +27,9 @@ def generate_es_documents(docs):
                 for couleur in variante['couleurs']:
 
                     # Supprimer les symboles de monnaie et convertir en nombre
-                    prix_texte = couleur['prix'].replace('€', '').replace(',', '.')
+                    prix_texte = couleur['prix'].replace('€', '').replace(',', '.').strip()
                     try:
-                        prix = float(prix_texte.strip())
+                        prix = float(prix_texte)
                     except ValueError:
                         prix = 0.0  # ou une autre valeur par défaut en cas d'erreur
 

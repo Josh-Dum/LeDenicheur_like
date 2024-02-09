@@ -16,7 +16,7 @@ models = db['models']
 # Vider la collection
 models.delete_many({})
 
-iphone_data = {
+iphone_15_data = {
     "gamme": "iPhone 15",
     "modèles": [
         {
@@ -165,12 +165,319 @@ iphone_data = {
     ]
 }
 
-# Vérifier si les données existent déjà
-if models.count_documents({"gamme": "iPhone 15"}) == 0:
-    # Insérer les données si elles n'existent pas
-    models.insert_one(iphone_data)
-else:
-    print("Les données existent déjà.")
+iphone_14_data = {
+    "gamme": "iPhone 14",
+    "modèles": [
+        {
+            "nom": "iPhone 14",
+            "variantes": [
+                {
+                    "stockage": "128 Go",
+                    "couleurs": [
+                        {"couleur": "Red", "prix": "", "date": ""},
+                        {"couleur": "Bleu", "prix": "", "date": ""},
+                        {"couleur": "Minuit", "prix": "", "date": ""},
+                        {"couleur": "Jaune", "prix": "", "date": ""},
+                        {"couleur": "Lumière stellaire", "prix": "", "date": ""},
+                        {"couleur": "Mauve", "prix": "", "date": ""}
+                    ]
+                },
+                {
+                    "stockage": "256 Go",
+                    "couleurs": [
+                        {"couleur": "Red", "prix": "", "date": ""},
+                        {"couleur": "Bleu", "prix": "", "date": ""},
+                        {"couleur": "Minuit", "prix": "", "date": ""},
+                        {"couleur": "Jaune", "prix": "", "date": ""},
+                        {"couleur": "Lumière stellaire", "prix": "", "date": ""},
+                        {"couleur": "Mauve", "prix": "", "date": ""}
+                    ]
+                },
+                {
+                    "stockage": "512 Go",
+                    "couleurs": [
+                        {"couleur": "Red", "prix": "", "date": ""},
+                        {"couleur": "Bleu", "prix": "", "date": ""},
+                        {"couleur": "Minuit", "prix": "", "date": ""},
+                        {"couleur": "Jaune", "prix": "", "date": ""},
+                        {"couleur": "Lumière stellaire", "prix": "", "date": ""},
+                        {"couleur": "Mauve", "prix": "", "date": ""}
+                    ]
+                }
+            ]
+        },
+        {
+            "nom": "iPhone 14 Plus",
+            "variantes": [
+                {
+                    "stockage": "128 Go",
+                    "couleurs": [
+                        {"couleur": "Red", "prix": "", "date": ""},
+                        {"couleur": "Bleu", "prix": "", "date": ""},
+                        {"couleur": "Minuit", "prix": "", "date": ""},
+                        {"couleur": "Jaune", "prix": "", "date": ""},
+                        {"couleur": "Lumière stellaire", "prix": "", "date": ""},
+                        {"couleur": "Mauve", "prix": "", "date": ""}
+                    ]
+                },
+                {
+                    "stockage": "256 Go",
+                    "couleurs": [
+                        {"couleur": "Red", "prix": "", "date": ""},
+                        {"couleur": "Bleu", "prix": "", "date": ""},
+                        {"couleur": "Minuit", "prix": "", "date": ""},
+                        {"couleur": "Jaune", "prix": "", "date": ""},
+                        {"couleur": "Lumière stellaire", "prix": "", "date": ""},
+                        {"couleur": "Mauve", "prix": "", "date": ""}
+                    ]
+                },
+                {
+                    "stockage": "512 Go",
+                    "couleurs": [
+                        {"couleur": "Red", "prix": "", "date": ""},
+                        {"couleur": "Bleu", "prix": "", "date": ""},
+                        {"couleur": "Minuit", "prix": "", "date": ""},
+                        {"couleur": "Jaune", "prix": "", "date": ""},
+                        {"couleur": "Lumière stellaire", "prix": "", "date": ""},
+                        {"couleur": "Mauve", "prix": "", "date": ""}
+                    ]
+                }
+            ]
+        },
+        {
+            "nom": "iPhone 14 Pro",
+            "variantes": [
+                {
+                    "stockage": "128 Go",
+                    "couleurs": [
+                        {"couleur": "Argent", "prix": "", "date": ""},
+                        {"couleur": "Or", "prix": "", "date": ""},
+                        {"couleur": "Noir", "prix": "", "date": ""},
+                        {"couleur": "Violet intense", "prix": "", "date": ""}
+                    ]
+                },
+                {
+                    "stockage": "256 Go",
+                    "couleurs": [
+                        {"couleur": "Argent", "prix": "", "date": ""},
+                        {"couleur": "Or", "prix": "", "date": ""},
+                        {"couleur": "Noir", "prix": "", "date": ""},
+                        {"couleur": "Violet intense", "prix": "", "date": ""}
+                    ]
+                },
+                {
+                    "stockage": "512GB",
+                    "couleurs": [
+                        {"couleur": "Argent", "prix": "", "date": ""},
+                        {"couleur": "Or", "prix": "", "date": ""},
+                        {"couleur": "Noir", "prix": "", "date": ""},
+                        {"couleur": "Violet intense", "prix": "", "date": ""}
+                    ]
+                },
+                {
+                    "stockage": "1TB",
+                    "couleurs": [
+                        {"couleur": "Argent", "prix": "", "date": ""},
+                        {"couleur": "Or", "prix": "", "date": ""},
+                        {"couleur": "Noir", "prix": "", "date": ""},
+                        {"couleur": "Violet intense", "prix": "", "date": ""}
+                    ]
+                }
+            ]
+        },
+        {
+            "nom": "iPhone 14 Pro Max",
+            "variantes": [
+                {
+                    "stockage": "128 Go",
+                    "couleurs": [
+                        {"couleur": "Argent", "prix": "", "date": ""},
+                        {"couleur": "Or", "prix": "", "date": ""},
+                        {"couleur": "Noir", "prix": "", "date": ""},
+                        {"couleur": "Violet intense", "prix": "", "date": ""}
+                    ]
+                },
+                {
+                    "stockage": "256 Go",
+                    "couleurs": [
+                        {"couleur": "Argent", "prix": "", "date": ""},
+                        {"couleur": "Or", "prix": "", "date": ""},
+                        {"couleur": "Noir", "prix": "", "date": ""},
+                        {"couleur": "Violet intense", "prix": "", "date": ""}
+                    ]
+                },
+                {
+                    "stockage": "512 Go",
+                    "couleurs": [
+                        {"couleur": "Argent", "prix": "", "date": ""},
+                        {"couleur": "Or", "prix": "", "date": ""},
+                        {"couleur": "Noir", "prix": "", "date": ""},
+                        {"couleur": "Violet intense", "prix": "", "date": ""}
+                    ]
+                },
+                {
+                    "stockage": "1TB",
+                    "couleurs": [
+                        {"couleur": "Argent", "prix": "", "date": ""},
+                        {"couleur": "Or", "prix": "", "date": ""},
+                        {"couleur": "Noir", "prix": "", "date": ""},
+                        {"couleur": "Violet intense", "prix": "", "date": ""}
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
+iphone_13_data = {
+    "gamme": "iPhone 13",
+    "modèles": [
+        {
+            "nom": "iPhone 13",
+            "variantes": [
+                {
+                    "stockage": "128 Go",
+                    "couleurs": [
+                        {"couleur": "Red", "prix": "", "date": ""},
+                        {"couleur": "Bleu", "prix": "", "date": ""},
+                        {"couleur": "Minuit", "prix": "", "date": ""},
+                        {"couleur": "Vert", "prix": "", "date": ""},
+                        {"couleur": "Lumière stellaire", "prix": "", "date": ""},
+                        {"couleur": "Rose", "prix": "", "date": ""}
+                    ]
+                },
+                {
+                    "stockage": "256 Go",
+                    "couleurs": [
+                        {"couleur": "Red", "prix": "", "date": ""},
+                        {"couleur": "Bleu", "prix": "", "date": ""},
+                        {"couleur": "Minuit", "prix": "", "date": ""},
+                        {"couleur": "Vert", "prix": "", "date": ""},
+                        {"couleur": "Lumière stellaire", "prix": "", "date": ""},
+                        {"couleur": "Rose", "prix": "", "date": ""}
+                    ]
+                },
+                {
+                    "stockage": "512 Go",
+                    "couleurs": [
+                        {"couleur": "Red", "prix": "", "date": ""},
+                        {"couleur": "Bleu", "prix": "", "date": ""},
+                        {"couleur": "Minuit", "prix": "", "date": ""},
+                        {"couleur": "Vert", "prix": "", "date": ""},
+                        {"couleur": "Lumière stellaire", "prix": "", "date": ""},
+                        {"couleur": "Rose", "prix": "", "date": ""}
+                    ]
+                }
+            ]
+        },
+        {
+            "nom": "iPhone 13 Mini",
+            "variantes": [
+                {
+                    "stockage": "128Go",
+                    "couleurs": [
+                        {"couleur": "Red", "prix": "", "date": ""},
+                        {"couleur": "Bleu", "prix": "", "date": ""},
+                        {"couleur": "Minuit", "prix": "", "date": ""},
+                        {"couleur": "Vert", "prix": "", "date": ""},
+                        {"couleur": "Lumière stellaire", "prix": "", "date": ""},
+                        {"couleur": "Rose", "prix": "", "date": ""}
+                    ]
+                }
+            ]
+        },
+        {
+            "nom": "iPhone 13 Pro",
+            "variantes": [
+                {
+                    "stockage": "128Go",
+                    "couleurs": [
+                        {"couleur": "Argent", "prix": "", "date": ""},
+                        {"couleur": "Or", "prix": "", "date": ""},
+                        {"couleur": "Graphite", "prix": "", "date": ""},
+                        {"couleur": "Bleu Alpin", "prix": "", "date": ""}
+                    ]
+                },
+                {
+                    "stockage": "256Go",
+                    "couleurs": [
+                        {"couleur": "Argent", "prix": "", "date": ""},
+                        {"couleur": "Or", "prix": "", "date": ""},
+                        {"couleur": "Graphite", "prix": "", "date": ""},
+                        {"couleur": "Bleu Alpin", "prix": "", "date": ""}
+                    ]
+                },
+                {
+                    "stockage": "512Go",
+                    "couleurs": [
+                        {"couleur": "Argent", "prix": "", "date": ""},
+                        {"couleur": "Or", "prix": "", "date": ""},
+                        {"couleur": "Graphite", "prix": "", "date": ""},
+                        {"couleur": "Bleu Alpin", "prix": "", "date": ""}
+                    ]
+                },
+                {
+                    "stockage": "1To",
+                    "couleurs": [
+                        {"couleur": "Argent", "prix": "", "date": ""},
+                        {"couleur": "Or", "prix": "", "date": ""},
+                        {"couleur": "Graphite", "prix": "", "date": ""},
+                        {"couleur": "Bleu Alpin", "prix": "", "date": ""}
+                    ]
+                }
+            ]
+        },
+        {
+            "nom": "iPhone 13 Pro Max",
+            "variantes": [
+                {
+                    "stockage": "128Go",
+                    "couleurs": [
+                        {"couleur": "Argent", "prix": "", "date": ""},
+                        {"couleur": "Or", "prix": "", "date": ""},
+                        {"couleur": "Noir", "prix": "", "date": ""},
+                        {"couleur": "Violet intense", "prix": "", "date": ""}
+                    ]
+                },
+                {
+                    "stockage": "256Go",
+                    "couleurs": [
+                        {"couleur": "Argent", "prix": "", "date": ""},
+                        {"couleur": "Or", "prix": "", "date": ""},
+                        {"couleur": "Graphite", "prix": "", "date": ""},
+                        {"couleur": "Bleu Alpin", "prix": "", "date": ""}
+                    ]
+                },
+                {
+                    "stockage": "512Go",
+                    "couleurs": [
+                        {"couleur": "Argent", "prix": "", "date": ""},
+                        {"couleur": "Or", "prix": "", "date": ""},
+                        {"couleur": "Graphite", "prix": "", "date": ""},
+                        {"couleur": "Bleu Alpin", "prix": "", "date": ""}
+                    ]
+                },
+                {
+                    "stockage": "1To",
+                    "couleurs": [
+                        {"couleur": "Argent", "prix": "", "date": ""},
+                        {"couleur": "Or", "prix": "", "date": ""},
+                        {"couleur": "Graphite", "prix": "", "date": ""},
+                        {"couleur": "Bleu Alpin", "prix": "", "date": ""}
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
+# models.insert_one(iphone_15_data)
+
+# models.insert_one(iphone_14_data)
+
+models.insert_one(iphone_13_data)
+
+
 
     
 def update_from_json():
@@ -194,11 +501,6 @@ def update_from_json():
                 {"col.couleur": produit['couleur']}
             ]
         )
-
-    if update_result.modified_count == 0:
-        print(f"Aucun document mis à jour pour {produit['nom']}.")
-    else:
-        print(f"Document mis à jour pour {produit['nom']}.")
 
     print("Base de données mise à jour avec succès.")
 
