@@ -1,10 +1,10 @@
 # LEDENICHEUR_LIKE
 
-LEDENICHEUR_LIKE est un projet conçu pour faciliter la recherche des iPhones les moins chers sur Amazon en utilisant une architecture microservices. Le projet intègre Flask, MongoDB, Elasticsearch, et Scrapy pour collecter, stocker, et rechercher efficacement les données sur les produits.
+LEDENICHEUR_LIKE est un projet conçu pour faciliter la recherche des iPhones les moins chers sur Amazon. Le projet intègre Flask, MongoDB, Elasticsearch, et Scrapy pour collecter, stocker, et rechercher efficacement les données sur les produits.
 
 ## Prérequis
 
-- Docker
+- Docker (4.27.1)
 - Docker Compose
 
 ## Installation
@@ -34,7 +34,7 @@ Pour effectuer une recherche, assurez-vous d'attendre quelques secondes après l
 
 ## Architecture et Choix Techniques
 
-Le projet "LEDENICHEUR_LIKE" est conçu autour d'une architecture microservices, optimisée pour la scalabilité, la modularité et la facilité de maintenance. Chaque composant du système a été choisi et configuré pour répondre au mieux aux besoins spécifiques du projet, depuis la collecte des données jusqu'à la présentation des informations aux utilisateurs.
+Notre projet est conçu autour d'une architecture microservices, en effet chaque services (détaillés plus bas) ont des taches bien précises.
 
 ### Api/
 
@@ -44,7 +44,7 @@ Le projet "LEDENICHEUR_LIKE" est conçu autour d'une architecture microservices,
 
 ### es-init/
 
-- **Scripts d'Initialisation** : Les scripts `init_es.sh` et `transfer_script.py` travaillent de concert pour préparer et maintenir à jour l'index Elasticsearch. Le script Bash attend qu'Elasticsearch soit prêt avant de lancer le script Python, qui transfère ensuite les données de MongoDB vers Elasticsearch.
+- **Scripts d'Initialisation** : Les scripts `init_es.sh` et `transfer_script.py` travaillent ensembles pour préparer et maintenir à jour l'index Elasticsearch. Le script Bash attend qu'Elasticsearch soit prêt avant de lancer le script Python, qui transfère ensuite les données de MongoDB vers Elasticsearch. La base de donnée est mise à jour chaque minute.
 - **Choix d'Elasticsearch** : Elasticsearch est utilisé pour sa capacité à effectuer des recherches complexes et à grande échelle. Son système d'indexation permet des requêtes rapides, ce qui est essentiel pour fournir une expérience utilisateur fluide lors de la recherche de produits.
 
 ### Mongo/
@@ -62,19 +62,9 @@ Le projet "LEDENICHEUR_LIKE" est conçu autour d'une architecture microservices,
 - **Orchestration des Services** : Docker Compose est utilisé pour définir et exécuter l'ensemble de l'architecture en conteneurs Docker. Cette approche garantit la cohérence des environnements de développement, de test et de production, simplifie le déploiement et la gestion des services.
 - **Dépendances et Orchestration** : Le fichier `docker-compose.yml` configure les dépendances entre services, assurant que chaque service est lancé dans l'ordre approprié et peut communiquer avec les autres. Par exemple, le service `es-init` ne démarre qu'après `elasticsearch`, garantissant que la base de données est prête à recevoir des données.
 
-## Contribution
-
-Si vous souhaitez contribuer à ce projet, veuillez suivre ces étapes :
-
-1. Forkez le dépôt.
-2. Créez votre branche de fonctionnalités (`git checkout -b feature/AmazingFeature`).
-3. Committez vos changements (`git commit -m 'Add some AmazingFeature'`).
-4. Poussez vers la branche (`git push origin feature/AmazingFeature`).
-5. Ouvrez une Pull Request.
-
 ## Contact
 
-Si vous avez des questions ou des suggestions concernant ce projet, n'hésitez pas à ouvrir un issue dans ce dépôt GitHub.
+Si vous avez des questions ou des suggestions concernant ce projet, n'hésitez pas à nous contacter
 
 
 
