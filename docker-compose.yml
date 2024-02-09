@@ -13,6 +13,8 @@ services:
       - mongo
     environment:
       - MONGO_URI=mongodb://mongo:27017/
+    volumes:
+      - ./Mongo/data_json:/app/data_json
 
   scrapper:
     build: ./Scrapper
@@ -40,7 +42,13 @@ services:
     depends_on:
       - elasticsearch
 
-
+  flaskapp:
+    build: ./Api
+    ports:
+      - "5000:5000"
+    depends_on:
+      - elasticsearch
+      
 volumes:
   mongo-data:
   elasticsearch-data:
