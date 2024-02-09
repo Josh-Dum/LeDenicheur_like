@@ -12,3 +12,4 @@ class IphoneItem(scrapy.Item):
     gamme = scrapy.Field()
     couleur = scrapy.Field()
     datetime = scrapy.Field()
+    link = scrapy.Field()

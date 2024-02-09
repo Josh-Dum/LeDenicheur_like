@@ -41,7 +41,8 @@ def generate_es_documents(docs):
                         'stockage': stockage,
                         'couleur': couleur['couleur'],
                         'prix': prix,
-                        'date': couleur['date']
+                        'date': couleur['date'],
+                        'link': couleur['link']
                     }
                     yield {
                         "_index": "iphone_index",

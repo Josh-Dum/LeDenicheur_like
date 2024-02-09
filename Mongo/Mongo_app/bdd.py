@@ -25,31 +25,31 @@ iphone_15_data = {
                 {
                     "stockage": "128 Go",
                     "couleurs": [
-                        {"couleur": "Bleu", "prix": "", "date": ""},
-                        {"couleur": "Rose", "prix": "", "date": ""},
-                        {"couleur": "Vert", "prix": "", "date": ""},
-                        {"couleur": "Jaune", "prix": "", "date": ""},
-                        {"couleur": "Noir", "prix": "", "date": ""}
+                        {"couleur": "Bleu", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Rose", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Vert", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Jaune", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Noir", "prix": "", "date": "", "link": ""}
                     ]
                 },
                 {
                     "stockage": "256 Go",
                     "couleurs": [
-                        {"couleur": "Bleu", "prix": "", "date": ""},
-                        {"couleur": "Rose", "prix": "", "date": ""},
-                        {"couleur": "Vert", "prix": "", "date": ""},
-                        {"couleur": "Jaune", "prix": "", "date": ""},
-                        {"couleur": "Noir", "prix": "", "date": ""}
+                        {"couleur": "Bleu", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Rose", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Vert", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Jaune", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Noir", "prix": "", "date": "", "link": ""}
                     ]
                 },
                 {
                     "stockage": "512 Go",
                     "couleurs": [
-                        {"couleur": "Bleu", "prix": "", "date": ""},
-                        {"couleur": "Rose", "prix": "", "date": ""},
-                        {"couleur": "Vert", "prix": "", "date": ""},
-                        {"couleur": "Jaune", "prix": "", "date": ""},
-                        {"couleur": "Noir", "prix": "", "date": ""}
+                        {"couleur": "Bleu", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Rose", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Vert", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Jaune", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Noir", "prix": "", "date": "", "link": ""}
                     ]
                 }
             ]
@@ -60,31 +60,31 @@ iphone_15_data = {
                 {
                     "stockage": "128 Go",
                     "couleurs": [
-                        {"couleur": "Bleu", "prix": "", "date": ""},
-                        {"couleur": "Rose", "prix": "", "date": ""},
-                        {"couleur": "Vert", "prix": "", "date": ""},
-                        {"couleur": "Jaune", "prix": "", "date": ""},
-                        {"couleur": "Noir", "prix": "", "date": ""}
+                        {"couleur": "Bleu", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Rose", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Vert", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Jaune", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Noir", "prix": "", "date": "", "link": ""}
                     ]
                 },
                 {
                     "stockage": "256 Go",
                     "couleurs": [
-                        {"couleur": "Bleu", "prix": "", "date": ""},
-                        {"couleur": "Rose", "prix": "", "date": ""},
-                        {"couleur": "Vert", "prix": "", "date": ""},
-                        {"couleur": "Jaune", "prix": "", "date": ""},
-                        {"couleur": "Noir", "prix": "", "date": ""}
+                        {"couleur": "Bleu", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Rose", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Vert", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Jaune", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Noir", "prix": "", "date": "", "link": ""}
                     ]
                 },
                 {
                     "stockage": "512 Go",
                     "couleurs": [
-                        {"couleur": "Bleu", "prix": "", "date": ""},
-                        {"couleur": "Rose", "prix": "", "date": ""},
-                        {"couleur": "Vert", "prix": "", "date": ""},
-                        {"couleur": "Jaune", "prix": "", "date": ""},
-                        {"couleur": "Noir", "prix": "", "date": ""}
+                        {"couleur": "Bleu", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Rose", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Vert", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Jaune", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Noir", "prix": "", "date": "", "link": ""}
                     ]
                 }
             ]
@@ -95,37 +95,37 @@ iphone_15_data = {
                 {
                     "stockage": "128 Go",
                     "couleurs": [
-                        {"couleur": "Titane Naturel", "prix": "", "date": ""},
-                        {"couleur": "Titane Bleu", "prix": "", "date": ""},
-                        {"couleur": "Titane Noir", "prix": "", "date": ""},
-                        {"couleur": "Titane Blanc", "prix": "", "date": ""}
+                        {"couleur": "Titane Naturel", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Titane Bleu", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Titane Noir", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Titane Blanc", "prix": "", "date": "", "link": ""}
                     ]
                 },
                 {
                     "stockage": "256 Go",
                     "couleurs": [
-                        {"couleur": "Titane Naturel", "prix": "", "date": ""},
-                        {"couleur": "Titane Bleu", "prix": "", "date": ""},
-                        {"couleur": "Titane Noir", "prix": "", "date": ""},
-                        {"couleur": "Titane Blanc", "prix": "", "date": ""}
+                        {"couleur": "Titane Naturel", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Titane Bleu", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Titane Noir", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Titane Blanc", "prix": "", "date": "", "link": ""}
                     ]
                 },
                 {
                     "stockage": "512 Go",
                     "couleurs": [
-                        {"couleur": "Titane Naturel", "prix": "", "date": ""},
-                        {"couleur": "Titane Bleu", "prix": "", "date": ""},
-                        {"couleur": "Titane Noir", "prix": "", "date": ""},
-                        {"couleur": "Titane Blanc", "prix": "", "date": ""}
+                        {"couleur": "Titane Naturel", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Titane Bleu", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Titane Noir", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Titane Blanc", "prix": "", "date": "", "link": ""}
                     ]
                 },
                 {
                     "stockage": "1 to",
                     "couleurs": [
-                        {"couleur": "Titane Naturel", "prix": "", "date": ""},
-                        {"couleur": "Titane Bleu", "prix": "", "date": ""},
-                        {"couleur": "Titane Noir", "prix": "", "date": ""},
-                        {"couleur": "Titane Blanc", "prix": "", "date": ""}
+                        {"couleur": "Titane Naturel", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Titane Bleu", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Titane Noir", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Titane Blanc", "prix": "", "date": "", "link": ""}
                     ]
                 }
             ]
@@ -136,28 +136,28 @@ iphone_15_data = {
                 {
                     "stockage": "256 Go",
                     "couleurs": [
-                        {"couleur": "Titane Naturel", "prix": "", "date": ""},
-                        {"couleur": "Titane Bleu", "prix": "", "date": ""},
-                        {"couleur": "Titane Noir", "prix": "", "date": ""},
-                        {"couleur": "Titane Blanc", "prix": "", "date": ""}
+                        {"couleur": "Titane Naturel", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Titane Bleu", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Titane Noir", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Titane Blanc", "prix": "", "date": "", "link": ""}
                     ]
                 },
                 {
                     "stockage": "512 Go",
                     "couleurs": [
-                        {"couleur": "Titane Naturel", "prix": "", "date": ""},
-                        {"couleur": "Titane Bleu", "prix": "", "date": ""},
-                        {"couleur": "Titane Noir", "prix": "", "date": ""},
-                        {"couleur": "Titane Blanc", "prix": "", "date": ""}
+                        {"couleur": "Titane Naturel", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Titane Bleu", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Titane Noir", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Titane Blanc", "prix": "", "date": "", "link": ""}
                     ]
                 },
                 {
                     "stockage": "1 to",
                     "couleurs": [
-                        {"couleur": "Titane Naturel", "prix": "", "date": ""},
-                        {"couleur": "Titane Bleu", "prix": "", "date": ""},
-                        {"couleur": "Titane Noir", "prix": "", "date": ""},
-                        {"couleur": "Titane Blanc", "prix": "", "date": ""}
+                        {"couleur": "Titane Naturel", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Titane Bleu", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Titane Noir", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Titane Blanc", "prix": "", "date": "", "link": ""}
                     ]
                 }
             ]
@@ -174,34 +174,34 @@ iphone_14_data = {
                 {
                     "stockage": "128 Go",
                     "couleurs": [
-                        {"couleur": "(Product) Red", "prix": "", "date": ""},
-                        {"couleur": "Bleu", "prix": "", "date": ""},
-                        {"couleur": "Minuit", "prix": "", "date": ""},
-                        {"couleur": "Jaune", "prix": "", "date": ""},
-                        {"couleur": "Lumière stellaire", "prix": "", "date": ""},
-                        {"couleur": "Mauve", "prix": "", "date": ""}
+                        {"couleur": "(Product) Red", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Bleu", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Minuit", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Jaune", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Lumière stellaire", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Mauve", "prix": "", "date": "", "link": ""}
                     ]
                 },
                 {
                     "stockage": "256 Go",
                     "couleurs": [
-                        {"couleur": "(Product) Red", "prix": "", "date": ""},
-                        {"couleur": "Bleu", "prix": "", "date": ""},
-                        {"couleur": "Minuit", "prix": "", "date": ""},
-                        {"couleur": "Jaune", "prix": "", "date": ""},
-                        {"couleur": "Lumière stellaire", "prix": "", "date": ""},
-                        {"couleur": "Mauve", "prix": "", "date": ""}
+                        {"couleur": "(Product) Red", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Bleu", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Minuit", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Jaune", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Lumière stellaire", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Mauve", "prix": "", "date": "", "link": ""}
                     ]
                 },
                 {
                     "stockage": "512 Go",
                     "couleurs": [
-                        {"couleur": "(Product) Red", "prix": "", "date": ""},
-                        {"couleur": "Bleu", "prix": "", "date": ""},
-                        {"couleur": "Minuit", "prix": "", "date": ""},
-                        {"couleur": "Jaune", "prix": "", "date": ""},
-                        {"couleur": "Lumière stellaire", "prix": "", "date": ""},
-                        {"couleur": "Mauve", "prix": "", "date": ""}
+                        {"couleur": "(Product) Red", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Bleu", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Minuit", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Jaune", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Lumière stellaire", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Mauve", "prix": "", "date": "", "link": ""}
                     ]
                 }
             ]
@@ -212,34 +212,34 @@ iphone_14_data = {
                 {
                     "stockage": "128 Go",
                     "couleurs": [
-                        {"couleur": "(Product) Red", "prix": "", "date": ""},
-                        {"couleur": "Bleu", "prix": "", "date": ""},
-                        {"couleur": "Minuit", "prix": "", "date": ""},
-                        {"couleur": "Jaune", "prix": "", "date": ""},
-                        {"couleur": "Lumière stellaire", "prix": "", "date": ""},
-                        {"couleur": "Mauve", "prix": "", "date": ""}
+                        {"couleur": "(Product) Red", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Bleu", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Minuit", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Jaune", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Lumière stellaire", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Mauve", "prix": "", "date": "", "link": ""}
                     ]
                 },
                 {
                     "stockage": "256 Go",
                     "couleurs": [
-                        {"couleur": "(Product) Red", "prix": "", "date": ""},
-                        {"couleur": "Bleu", "prix": "", "date": ""},
-                        {"couleur": "Minuit", "prix": "", "date": ""},
-                        {"couleur": "Jaune", "prix": "", "date": ""},
-                        {"couleur": "Lumière stellaire", "prix": "", "date": ""},
-                        {"couleur": "Mauve", "prix": "", "date": ""}
+                        {"couleur": "(Product) Red", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Bleu", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Minuit", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Jaune", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Lumière stellaire", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Mauve", "prix": "", "date": "", "link": ""}
                     ]
                 },
                 {
                     "stockage": "512 Go",
                     "couleurs": [
-                        {"couleur": "(Product) Red", "prix": "", "date": ""},
-                        {"couleur": "Bleu", "prix": "", "date": ""},
-                        {"couleur": "Minuit", "prix": "", "date": ""},
-                        {"couleur": "Jaune", "prix": "", "date": ""},
-                        {"couleur": "Lumière stellaire", "prix": "", "date": ""},
-                        {"couleur": "Mauve", "prix": "", "date": ""}
+                        {"couleur": "(Product) Red", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Bleu", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Minuit", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Jaune", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Lumière stellaire", "prix": "", "date": "", "link": ""},
+                        {"couleur": "Mauve", "prix": "", "date": "", "link": ""}
                     ]
                 }
             ]
@@ -268,7 +268,8 @@ def update_from_json():
             {
                 "$set": {
                     "modèles.$[mod].variantes.$[var].couleurs.$[col].prix": produit['prix'],
-                    "modèles.$[mod].variantes.$[var].couleurs.$[col].date": produit['date']
+                    "modèles.$[mod].variantes.$[var].couleurs.$[col].date": produit['date'],
+                    "modèles.$[mod].variantes.$[var].couleurs.$[col].link": produit['link']
                 }
             },
             array_filters=[

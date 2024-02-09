@@ -87,10 +87,18 @@ class AmazonSpider(scrapy.Spider):
             url_gamme = match.group(1)
         else:
             url_gamme = full_gamme_name
+        
+        amazon_base_url = "https://www.amazon.fr"
 
         for product in response.css('div[data-asin]'):
             full_name = product.css('span.a-size-base-plus.a-color-base.a-text-normal::text').get()
             price = product.css('.a-offscreen::text').get()
+            link = product.css('.a-link-normal::attr(href)').get()
+            if link is not None:
+                full_link = amazon_base_url + link
+            else:
+                # Gérer le cas où link est None
+                full_link = "Lien non trouvé"
 
             if full_name and price:
 
@@ -113,6 +121,7 @@ class AmazonSpider(scrapy.Spider):
                 item['gamme'] = gamme
                 item['couleur'] = couleur
                 item['datetime'] = datetime_now
+                item['link'] = full_link
                 
                 # Vérifie que les champs ne sont pas 'Inconnu'
                 if all(value != 'Inconnu' for value in item.values()):
@@ -126,7 +135,8 @@ class AmazonSpider(scrapy.Spider):
                             "couleur": url_couleur,
                             "prix": item['price'],
                             "gamme": url_gamme,
-                            "date": item['datetime']
+                            "date": item['datetime'],
+                            "link": item['link']
                         }
 
 
