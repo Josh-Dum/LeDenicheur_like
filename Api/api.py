@@ -185,9 +185,18 @@ SEARCH_RESULTS_TEMPLATE = '''
         }
         .nom {
             color: #007bff; /* Couleur bleue pour le nom */
+            text-decoration: none; /* Pas de soulignement pour les liens */
         }
         .prix {
             font-weight: bold; /* Mise en gras du prix */
+        }
+        /* Ajout de styles pour les liens */
+        .link-item {
+            text-decoration: none; /* Pas de soulignement pour les liens */
+            color: #495057; /* Couleur par défaut pour le texte */
+        }
+        .link-item:hover {
+            color: #0056b3; /* Couleur au survol pour les liens */
         }
     </style>
 </head>
@@ -197,14 +206,14 @@ SEARCH_RESULTS_TEMPLATE = '''
     {% if results %}
         <div class="list-group">
             {% for result in results %}
-                <div class="list-group-item flex-column align-items-start">
+                <a href="{{ result['link'] }}" class="list-group-item flex-column align-items-start link-item" target="_blank">
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1 nom">{{ result['nom'] }}</h5>
                         <small>{{ result['date'] }}</small>
                     </div>
                     <p class="mb-1">Stockage: {{ result['stockage'] }} | Couleur: {{ result['couleur'] }} | <span class="prix">{{ result['prix'] }} €</span></p>
                     <small>Gamme: {{ result['gamme'] }}</small>
-                </div>
+                </a>
             {% endfor %}
         </div>
     {% else %}
