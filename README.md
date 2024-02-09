@@ -32,19 +32,19 @@ http://localhost:5000
 
 Pour effectuer une recherche, assurez-vous d'attendre quelques secondes après le lancement des conteneurs pour que le service Elasticsearch soit pleinement opérationnel.
 
-# Informations Importantes Concernant le Scrapping des iPhones
+## Informations Importantes Concernant le Scrapping des iPhones
 
-# Erreurs de Scrapping et Blocage par Amazon
+## Erreurs de Scrapping et Blocage par Amazon
 
 Lors de l'utilisation de notre outil de scrapping pour collecter des données sur les iPhones, il est possible que vous rencontriez des erreurs fréquentes, notamment des erreurs `HTTP 503 Service Unavailable`. Ces erreurs sont généralement le résultat de restrictions imposées par Amazon pour prévenir le scrapping automatisé de leurs pages web.
 
 Si vous constatez que le service de scrapping est souvent en état `exited`, cela peut également indiquer que nos tentatives de scrapping ont été bloquées par Amazon. Ces mesures de sécurité peuvent varier dans leur sévérité et leur durée, mais elles sont mises en place pour protéger le contenu du site d'Amazon contre l'extraction non autorisée.
 
-# Gestion de l'Heure
+## Gestion de l'Heure
 
 Veuillez noter que toutes les heures enregistrées dans nos logs et les données scrapées sont en heure britannique (GMT/UTC+0). Ceci signifie qu'il peut y avoir un décalage d'une heure par rapport à l'heure de Paris (CET/UTC+1) pendant une partie de l'année. Assurez-vous de prendre en compte ce décalage lors de l'interprétation des données.
 
-# Recommandations
+## Recommandations
 
 Pour éviter ces problèmes, nous recommandons d'adopter les pratiques suivantes :
 
