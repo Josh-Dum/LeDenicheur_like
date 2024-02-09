@@ -84,6 +84,12 @@ Notre projet est conçu autour d'une architecture microservices, en effet chaque
 
 ## Contact
 
+- **Joshua Dumont**
+  - **Gmail** : [dumonthoshua@gmail.com](mailto:dumonthoshua@gmail.com)
+
+- **Eliott Vigier**
+  - **Gmail** : [eliott.vigier@edu.esiee.fr](mailto:eliott.vigier@edu.esiee.fr)
+
 Si vous avez des questions ou des suggestions concernant ce projet, n'hésitez pas à nous contacter
 
 
