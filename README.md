@@ -32,6 +32,26 @@ http://localhost:5000
 
 Pour effectuer une recherche, assurez-vous d'attendre quelques secondes après le lancement des conteneurs pour que le service Elasticsearch soit pleinement opérationnel.
 
+# Informations Importantes Concernant le Scrapping des iPhones
+
+# Erreurs de Scrapping et Blocage par Amazon
+
+Lors de l'utilisation de notre outil de scrapping pour collecter des données sur les iPhones, il est possible que vous rencontriez des erreurs fréquentes, notamment des erreurs `HTTP 503 Service Unavailable`. Ces erreurs sont généralement le résultat de restrictions imposées par Amazon pour prévenir le scrapping automatisé de leurs pages web.
+
+Si vous constatez que le service de scrapping est souvent en état `exited`, cela peut également indiquer que nos tentatives de scrapping ont été bloquées par Amazon. Ces mesures de sécurité peuvent varier dans leur sévérité et leur durée, mais elles sont mises en place pour protéger le contenu du site d'Amazon contre l'extraction non autorisée.
+
+# Gestion de l'Heure
+
+Veuillez noter que toutes les heures enregistrées dans nos logs et les données scrapées sont en heure britannique (GMT/UTC+0). Ceci signifie qu'il peut y avoir un décalage d'une heure par rapport à l'heure de Paris (CET/UTC+1) pendant une partie de l'année. Assurez-vous de prendre en compte ce décalage lors de l'interprétation des données.
+
+# Recommandations
+
+Pour éviter ces problèmes, nous recommandons d'adopter les pratiques suivantes :
+
+- **Relancer le projet** : Avoir le Scrapping en temps réel permet une actualisation toutes les minutes de la base de donnée Mongo et de elastic search. Vous pourrez constatez ceci une actualisation sur Flask minute par minute. 
+- **Ralentir la fréquence de scrapping** : En espaçant les requêtes de scrapping, on a déjà réduit le risque de détection et de blocage par les mécanismes anti-scrapping d'Amazon.
+- **Scrapping pendant les heures creuses** : Tenter de scraper pendant les périodes où les serveurs sont moins sollicités peut réduire les chances d'être bloqué.
+
 ## Architecture et Choix Techniques
 
 Notre projet est conçu autour d'une architecture microservices, en effet chaque services (détaillés plus bas) ont des taches bien précises.
