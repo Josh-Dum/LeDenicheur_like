@@ -48,7 +48,7 @@ Veuillez noter que toutes les heures enregistrées dans nos logs et les données
 
 Pour éviter ces problèmes, nous recommandons d'adopter les pratiques suivantes :
 
-- **Relancer le projet** : Avoir le Scrapping en temps réel permet une actualisation toutes les minutes de la base de donnée Mongo et de elastic search. Vous pourrez constatez ceci une actualisation sur Flask minute par minute. 
+- **Relancer le projet** : Avoir le Scrapping en temps réel permet une actualisation toutes les minutes de la base de donnée Mongo et de elastic search. Vous pourrez constatez ainsi une actualisation sur Flask minute par minute. 
 - **Ralentir la fréquence de scrapping** : En espaçant les requêtes de scrapping, on a déjà réduit le risque de détection et de blocage par les mécanismes anti-scrapping d'Amazon.
 - **Scrapping pendant les heures creuses** : Tenter de scraper pendant les périodes où les serveurs sont moins sollicités peut réduire les chances d'être bloqué.
 
