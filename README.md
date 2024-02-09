@@ -1,57 +1,63 @@
 # LEDENICHEUR_LIKE
 
-LEDENICHEUR_LIKE est une application conçue pour recueillir et fournir des informations sur différents produits à travers une API. Elle utilise un scraper pour collecter les données, les stocke dans une base de données MongoDB et offre une interface de recherche via Elasticsearch.
+LEDENICHEUR_LIKE est un projet conçu pour faciliter la recherche des iPhones les moins chers sur Amazon en utilisant une architecture microservices. Le projet intègre Flask, MongoDB, Elasticsearch, et Scrapy pour collecter, stocker, et rechercher efficacement les données sur les produits.
 
-## Structure du Projet
+## Prérequis
 
-- `Api/`: Contient le code source de l'API RESTful pour interagir avec l'application.
-- `es-init/`: Scripts et configurations pour initialiser Elasticsearch.
-- `Mongo/`: Scripts pour générer et gérer la base de données MongoDB.
-- `Scrapper/`: Contient le scraper qui utilise Scrapy pour recueillir les données des produits.
+- Docker
+- Docker Compose
 
 ## Installation
 
-Ce projet utilise Docker et `docker-compose` pour faciliter l'installation et la configuration.
+Pour lancer l'ensemble du projet, suivez ces étapes :
 
-1. Clonez le dépôt :
-```
-git clone [url-du-dépôt]
-```
-2. Construisez les images Docker et lancez les conteneurs :
+1. Clonez ce dépôt sur votre machine locale.
+2. Assurez-vous que Docker et Docker Compose sont installés et fonctionnels.
+3. Dans le répertoire racine du projet, exécutez la commande :
+
 ```
 docker-compose up --build
 ```
 
-## Usage
 
-Une fois que les conteneurs sont lancés, l'API peut être accessible à l'adresse suivante : `http://localhost:port/` où `port` est le port configuré dans le fichier `docker-compose.yml`.
+Cela construira et lancera tous les services nécessaires définis dans le fichier `docker-compose.yml`.
 
-## Développement
+## Utilisation
 
-- Pour ajouter/modifier les spiders : 
-- Naviguez vers `Scrapper/scrapy_app/spiders/`
-- Utilisez `scrapy genspider [nom_du_spider] [domaine]` pour générer un nouveau spider.
-- Modifiez `items.py` pour définir les modèles de données à collecter.
+Une fois que tous les services sont lancés, vous pouvez accéder à l'interface utilisateur Flask à l'adresse suivante :
 
-- Pour la gestion de la base de données :
-- Le script `bdd.py` dans `Mongo/Mongo_app/` contient la logique de connexion et les opérations de la base de données.
+```
+http://localhost:5000
+```
 
-## Contributions
+Pour effectuer une recherche, assurez-vous d'attendre quelques secondes après le lancement des conteneurs pour que le service Elasticsearch soit pleinement opérationnel.
 
-Les contributions sont les bienvenues. Veuillez soumettre vos pull requests à la branche `develop`.
+## Architecture et Choix Techniques
 
-## Licence
+Le projet est divisé en plusieurs composants clés :
 
-Ce projet est sous licence [Insérer la licence ici].
+- **Api/** : Un service Flask fournissant une interface utilisateur pour effectuer des recherches sur les produits. Utilise Bootstrap pour une meilleure ergonomie.
+- **es-init/** : Un service pour initialiser Elasticsearch avec des données provenant de MongoDB et les mettre à jour régulièrement.
+- **Mongo/** : Contient les données des produits et un script d'initialisation pour peupler MongoDB.
+- **Scrapper/** : Un service Scrapy pour extraire les informations des produits des gammes iPhone 15 et 14 sur Amazon.
 
-## Auteurs
+### Docker Compose
 
-- [Votre Nom] - Développement initial
+`docker-compose.yml` orchestre le déploiement de tous les services, en établissant les dépendances nécessaires entre eux pour un fonctionnement harmonieux.
 
-## Remerciements
+## Contribution
 
-Merci à tous ceux qui ont contribué au projet, y compris les collaborateurs et les membres de la communauté qui ont soumis des bugs et des suggestions.
+Si vous souhaitez contribuer à ce projet, veuillez suivre ces étapes :
 
----
+1. Forkez le dépôt.
+2. Créez votre branche de fonctionnalités (`git checkout -b feature/AmazingFeature`).
+3. Committez vos changements (`git commit -m 'Add some AmazingFeature'`).
+4. Poussez vers la branche (`git push origin feature/AmazingFeature`).
+5. Ouvrez une Pull Request.
 
-Pour plus d'informations sur la configuration spécifique, les méthodes de lancement détaillées ou les choix techniques, veuillez consulter la documentation technique complémentaire disponible dans le dépôt.
+## Contact
+
+Si vous avez des questions ou des suggestions concernant ce projet, n'hésitez pas à ouvrir un issue dans ce dépôt GitHub.
+
+
+
