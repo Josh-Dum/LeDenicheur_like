@@ -31,7 +31,7 @@ def generate_es_documents(docs):
                     try:
                         prix = float(prix_texte)
                     except ValueError:
-                        prix = 0.0  # ou une autre valeur par défaut en cas d'erreur
+                        prix = None  # ou une autre valeur par défaut en cas d'erreur
 
                     
                     # Créer un document pour chaque variante de couleur

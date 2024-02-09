@@ -97,8 +97,8 @@ class AmazonSpider(scrapy.Spider):
                 # Exemple de nom : "Apple iPhone 15 Plus (128 Go) - Noir"
                 gamme = "iPhone"
                 name_match = re.search(r'iPhone \d{1,2}( Pro Max| Pro| Plus)?', full_name)
-                stockage_match = re.search(r'(\d{1,3}\s?(Go|to|TB|GB))', full_name)
-                couleur_match = re.search(r' - (Bleu Alpin|Graphite|Red|Lumière stellaire|Noir sidéral|Violet intense|Minuit|Mauve|Titane \w+|\w+)$', full_name)
+                stockage_match = re.search(r'(\d{1,3}\s?(Go|to))', full_name)
+                couleur_match = re.search(r' - (\(Product\) Red|Lumière stellaire|Minuit|Mauve|Titane \w+|\w+)( \(Reconditionné\))?$', full_name)
                 name = name_match.group(0) if name_match else 'Inconnu'
                 stockage = stockage_match.group(1) if stockage_match else 'Inconnu'
                 couleur = couleur_match.group(1) if couleur_match else 'Inconnu'

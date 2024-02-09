@@ -15,7 +15,7 @@ def home():
 
         # Convertir price_min et price_max en float si elles ne sont pas vides
         if price_min:
-            price_min = float(price_min)
+            price_min = float(price_min) 
         else:
             price_min = None
 
